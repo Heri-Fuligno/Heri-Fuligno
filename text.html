@@ -815,5 +815,102 @@ details {
 details .indented {
 	margin-top: 0.5em;
 }
-</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="35930d77-1e6b-803f-8949-eac9c92c0094" class="page sans" data-notion-page-icon="/icons/drafts_gray.svg"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://app.notion.com/icons/drafts_gray.svg"/></div><h1 class="page-title" dir="auto">文章・テキスト系  Text and Writing</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div id="35e30d77-1e6b-8079-a051-d343113e106c" class="column-list" data-notion-column-list="" dir="auto"><div id="35e30d77-1e6b-8076-9c0d-e5aa52782917" style="width:93.75%" class="column" data-notion-column-ratio="0.9375" dir="auto"><div id="35e30d77-1e6b-8086-8d75-f994b510eaf5" class="collection-content" dir="ltr"><h4 class="collection-title">一覧 </h4><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:58.333333333333336%"/><col style="width:41.666666666666664%"/></colgroup><thead><tr><th><span class="icon property-icon"><img src="https://app.notion.com/icons/font_gray.svg" style="width:14px;height:14px;display:block"/></span>名前</th><th><span class="icon property-icon"><img src="https://app.notion.com/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>日付</th></tr></thead><tbody><tr id="35e30d77-1e6b-80ad-9f16-e48096752530"><td class="cell-title"><a href="text/shidosha.html" data-notion-page-id="35e30d77-1e6b-80ad-9f16-e48096752530" data-notion-space-id="78330d77-1e6b-8180-984c-0003b05a0434">指導者の頭</a></td><td class="cell-xt&lt;&lt;"><time datetime="2026-05-12">2026/05/12</time></td></tr></tbody></table></div><br/><br/></div></div><div id="35e30d77-1e6b-805b-8431-c813f0337fd9" style="width:6.25%" class="column" data-notion-column-ratio="0.0625" dir="auto"><p id="35e30d77-1e6b-8033-9ad1-c4ac7d13c87d" class="" dir="auto">
-</p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="35930d77-1e6b-803f-8949-eac9c92c0094" class="page sans" data-notion-page-icon="/icons/drafts_gray.svg"><header><div class="page-header-icon undefined"><img class="icon notion-static-icon" src="https://app.notion.com/icons/drafts_gray.svg"/></div><h1 class="page-title" dir="auto">文章・テキスト系  Text and Writing</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div id="35e30d77-1e6b-8079-a051-d343113e106c" class="column-list" data-notion-column-list="" dir="auto"><div id="35e30d77-1e6b-8076-9c0d-e5aa52782917" style="width:93.75%" class="column" data-notion-column-ratio="0.9375" dir="auto"><div id="35e30d77-1e6b-8086-8d75-f994b510eaf5" class="collection-content" dir="ltr"><h4 class="collection-title">一覧 </h4><div class="collection-content-wrapper"><table class="collection-content"><colgroup><col style="width:58.333333333333336%"/><col style="width:41.666666666666664%"/></colgroup><tbody><tr id="35e30d77-1e6b-80ad-9f16-e48096752530"><td class="cell-title"><a href="text/shidosha.html" data-notion-page-id="35e30d77-1e6b-80ad-9f16-e48096752530" data-notion-space-id="78330d77-1e6b-8180-984c-0003b05a0434">指導者の頭</a></td><td class="cell-xt&lt;&lt;"><time datetime="2026-05-12">2026/05/12</time></td></tr></tbody></table></div><br/><br/></div></div><div id="35e30d77-1e6b-805b-8431-c813f0337fd9" style="width:6.25%" class="column" data-notion-column-ratio="0.0625" dir="auto"><p id="35e30d77-1e6b-8033-9ad1-c4ac7d13c87d" class="" dir="auto">
+</p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+<style>
+/* --- Notion風 サイドピーク --- */
+.peek-backdrop{position:fixed;inset:0;background:rgba(15,15,15,.4);opacity:0;visibility:hidden;transition:opacity .2s ease;z-index:1000}
+.peek-backdrop.is-open{opacity:1;visibility:visible}
+.peek-panel{position:fixed;top:0;right:0;height:100%;width:min(720px,92vw);background:#fff;box-shadow:-3px 0 24px rgba(15,15,15,.15);transform:translateX(100%);transition:transform .28s cubic-bezier(.3,.7,.2,1);z-index:1001;display:flex;flex-direction:column}
+.peek-panel.is-open{transform:translateX(0)}
+.peek-head{display:flex;align-items:center;gap:2px;padding:10px 14px;border-bottom:1px solid rgba(55,53,47,.09);flex:0 0 auto}
+.peek-head button,.peek-head a{background:none;border:none;cursor:pointer;color:rgba(55,53,47,.6);font-size:17px;line-height:1;padding:6px 8px;border-radius:6px;text-decoration:none;display:inline-flex;align-items:center}
+.peek-head button:hover,.peek-head a:hover{background:rgba(55,53,47,.08);color:rgba(55,53,47,.85)}
+.peek-title{font-size:14px;color:rgba(55,53,47,.65);margin:0 auto 0 6px;flex:1 1 auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.peek-body{flex:1 1 auto;overflow-y:auto}
+.peek-body article.page{margin:2em auto;max-width:none;padding:0 44px;white-space:normal}
+.peek-body iframe{width:100%;height:100%;border:0;display:block}
+.peek-loading{padding:48px;text-align:center;color:rgba(55,53,47,.45)}
+body.peek-lock{overflow:hidden}
+@media (max-width:600px){.peek-panel{width:100vw}.peek-body article.page{padding:0 20px}}
+/* --- Notion風プロパティ欄（ジャンル・日付）: ピーク内の詳細ページに適用 --- */
+.properties{border:none;margin:.4em 0 1.6em}
+.properties tbody,.properties tr{border:none}
+.properties th,.properties td{border:none;padding:5px 0;font-size:14px;line-height:1.6;vertical-align:top;background:none}
+.properties th{width:150px;min-width:150px;color:rgba(55,53,47,.5);font-weight:normal;white-space:nowrap}
+.properties th .property-icon{margin-right:7px;position:relative;top:2px}
+.properties td{color:rgb(55,53,47);padding-left:16px}
+.properties .property-row-date td,.properties time{color:rgba(55,53,47,.65)}
+.notion-tag{display:inline-block;padding:2px 9px;border-radius:5px;font-size:13px;line-height:1.4;background:rgba(206,205,202,.5);color:rgb(50,48,44)}
+/* --- 一覧テーブルを Notion のデータベース表示風に --- */
+.collection-title{font-size:13px;font-weight:600;color:rgba(55,53,47,.5);letter-spacing:.02em;margin-bottom:2px}
+.collection-content{border-collapse:collapse;width:100%;font-size:14px}
+.collection-content th,.collection-content td{border:none;border-bottom:1px solid rgba(55,53,47,.09);padding:9px 10px;vertical-align:middle}
+.collection-content thead th{font-size:12px;font-weight:500;color:rgba(55,53,47,.5);border-bottom:1px solid rgba(55,53,47,.16);padding-top:2px;padding-bottom:6px}
+.collection-content thead th .property-icon{display:inline-block;vertical-align:-2px;margin-right:5px}
+.collection-content tbody tr{cursor:pointer;transition:background .12s ease}
+.collection-content tbody tr:hover{background:rgba(55,53,47,.035)}
+.collection-content tbody tr:last-child td{border-bottom:none}
+.collection-content .cell-title a{text-decoration:none;font-weight:500;color:rgb(55,53,47)}
+.collection-content .cell-title a:hover{text-decoration:underline}
+.collection-content td time{color:rgba(55,53,47,.5);font-size:13px;white-space:nowrap}
+</style>
+<script>
+(function(){
+  var backdrop,panel,bodyEl,titleEl,fullLink,lastFocus;
+  function build(){
+    backdrop=document.createElement('div');backdrop.className='peek-backdrop';
+    panel=document.createElement('div');panel.className='peek-panel';
+    panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');
+    panel.innerHTML='<div class="peek-head">'+
+      '<button type="button" class="peek-close" aria-label="閉じる" title="閉じる">✕</button>'+
+      '<span class="peek-title"></span>'+
+      '<a class="peek-full" target="_blank" rel="noopener" aria-label="全画面で開く" title="全画面で開く">↗</a>'+
+      '</div><div class="peek-body"></div>';
+    document.body.appendChild(backdrop);document.body.appendChild(panel);
+    bodyEl=panel.querySelector('.peek-body');titleEl=panel.querySelector('.peek-title');fullLink=panel.querySelector('.peek-full');
+    backdrop.addEventListener('click',close);
+    panel.querySelector('.peek-close').addEventListener('click',close);
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  }
+  function fixRefs(root,baseUrl){
+    root.querySelectorAll('[src]').forEach(function(el){var v=el.getAttribute('src');if(v&&!/^(https?:|data:|\/\/)/.test(v))el.setAttribute('src',new URL(v,baseUrl).href);});
+    root.querySelectorAll('[href]').forEach(function(el){var v=el.getAttribute('href');if(v&&!/^(https?:|mailto:|#|\/\/)/.test(v))el.setAttribute('href',new URL(v,baseUrl).href);});
+  }
+  function open(url,title){
+    if(!panel)build();
+    titleEl.textContent=title||'';fullLink.href=url;
+    bodyEl.innerHTML='<div class="peek-loading">読み込み中…</div>';
+    backdrop.classList.add('is-open');panel.classList.add('is-open');
+    document.body.classList.add('peek-lock');
+    lastFocus=document.activeElement;
+    var baseUrl=new URL(url,location.href);
+    fetch(url).then(function(r){if(!r.ok)throw 0;return r.text();}).then(function(html){
+      var doc=new DOMParser().parseFromString(html,'text/html');
+      var art=doc.querySelector('article');
+      if(!art)throw 0;
+      fixRefs(art,baseUrl);
+      bodyEl.innerHTML='';bodyEl.appendChild(document.importNode(art,true));
+      bodyEl.scrollTop=0;
+    }).catch(function(){
+      bodyEl.innerHTML='<iframe src="'+url+'" title="'+(title||'')+'"></iframe>';
+    });
+  }
+  function close(){
+    if(!panel)return;
+    backdrop.classList.remove('is-open');panel.classList.remove('is-open');
+    document.body.classList.remove('peek-lock');
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[data-notion-page-id]');
+    if(!a){var row=e.target.closest('tr');if(row)a=row.querySelector('a[data-notion-page-id]');}
+    if(!a||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;
+    var href=a.getAttribute('href');
+    if(!href||/^(https?:|mailto:|#|\/\/)/.test(href))return;
+    e.preventDefault();
+    open(href,a.textContent.trim());
+  });
+})();
+</script>
+</body></html>
