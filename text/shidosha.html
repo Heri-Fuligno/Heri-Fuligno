@@ -1,0 +1,846 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>指導者の頭</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+
+@media (max-width: 720px) {
+	body {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+	.column-list {
+		flex-direction: column;
+		gap: 1em;
+	}
+	.column {
+		width: 100% !important;
+	}
+	.page-title {
+		font-size: 2rem;
+	}
+}
+
+/* --- spacing tweaks --- */
+.page-body > h1,
+.page-body > h2,
+.page-body > h3 {
+	margin-top: 2.4em;
+	margin-bottom: 0.75em;
+}
+.page-body h1,
+.page-body h2,
+.page-body h3,
+.page-body h4 {
+	line-height: 1.3;
+}
+/* Keep toggle/summary headings compact */
+details > summary h1,
+details > summary h2,
+details > summary h3 {
+	margin: 0;
+}
+.column-list {
+	margin-top: 0.5em;
+	margin-bottom: 1.5em;
+}
+.callout {
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+details {
+	margin-top: 2em;
+}
+details .indented {
+	margin-top: 0.5em;
+}
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="35e30d77-1e6b-80ad-9f16-e48096752530" class="page sans"><header><h1 class="page-title" dir="auto">指導者の頭</h1><p class="page-description" dir="auto"></p><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/description_gray.svg" style="width:14px;height:14px;display:block"/></span>ジャンル</th><td>短編小説（8192字）</td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><img src="https://app.notion.com/icons/calendar_gray.svg" style="width:14px;height:14px;display:block"/></span>日付</th><td><time datetime="2026-05-12">2026/05/12</time></td></tr></tbody></table></header><div class="page-body"><p id="35e30d77-1e6b-80d0-bae5-e3bc75cce578" class="" dir="auto">　ついに、第３コスモまでの中間地点、すなわちアイトールまで来た。<br/>　私は数名の乗客をのせて、暗い宇宙、この飛行船を操縦していた。「操縦」こそしていたものの、私がそれに必要な資格を持っているわけではなかったし、この飛行船の登録証は偽物だし、そもそもここ、アイトール自体が進入禁止区域なのだった。<br/>　免許を持たず、記録上存在していない機体を動かし、禁止領域を通過し、星から星へと乗客を運ぶ。報酬がもらえれば何でも良いのだ。</p><p id="35e30d77-1e6b-80b5-93d0-db2e3eca62d1" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80ac-9049-f99130415a25" class="" dir="auto">　アイトールを通過する。<br/>　もはやブロックのように固まった、もとは人間の体を形成していたであろうものがところどころに宇宙空間を漂っていてぶつかりそうになるが、私はそれらを器用に避けながら、その進入禁止区域を進んでいく。速度を落とすことはあまりしたくなかった。</p><p id="35e30d77-1e6b-80b3-a25b-f106b05b0a1d" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8039-87bd-e25acd77da13" class="" dir="auto">　狭い機内を埋めているのは私と４名の乗客だった。<br/>　宗教指導者が１名、その側近が２名、あとは宗教指導者のボディーガードだった。<br/>　「これからどうしましょうか...」<br/>　側近の一人が宗教指導者に話しかけた。その声には、責任なき非日常体験を味わっているときの興奮が混じっていた。もう一人の側近もほとんど同じような興奮を抱いているように見えた。当事者でありながら、非当事者性を帯びることの快楽は想像が容易だった。<br/>　宗教指導者の方はじっと黙っていた。灰色の服装に身をやつして、ただ何かを考えているといった沈黙で、側近の言葉と視線に応えることなく、じっと目を閉じていた。<br/>　宗教指導者には威厳があった。しかし、その威厳は、普段より何割か減じたものなのだろうと私は思った。<br/>　ボディーガードも黙っていた。しかし、それは何も考えていない故の沈黙だった。要人を警護するための反射を確保するには、脳内で情報を生成しないことが重要であるということをわきまえている、洗練された無思考と沈黙だった。</p><p id="35e30d77-1e6b-80ed-928c-fcdfc74a7c3d" class="" dir="auto">
+</p><p id="35e30d77-1e6b-802d-8b43-fd452be403ac" class="" dir="auto">　宗教指導者は追われていた。<br/>　それは単に彼が「間違っていた」からだった。<br/>　しかし、その「間違い」は極めて根深いもので、彼はその地位から引きずり降ろされるばかりか、彼に対する過剰な信頼の裏返しとして人間が持つすべてのネガティブな感情の的となり、命を狙うものも現れ始めた。彼はもう、もといた星にはいられないのだ。</p><p id="35e30d77-1e6b-80cf-8277-f24e932727fc" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8010-b2b5-d98ba275fc9b" class="" dir="auto">　私の意識はふと、鼻腔を刺激する尿の匂いに向けられた。それは先ほど宗教指導者に話しかけた側近から発せられていることを私は理解していた。というのも、側近の２人は糞尿に対しての意識が極端に低いことが、ここまでの旅路で私が得た知識だった。機体の後部にある簡易的な排泄装置の使用を促すのだが、非日常体験から来る興奮からなのか、彼ら２人は私の催促と自分たちの便意を軽やかに無視し、糞と尿を少しずつ漏らしてゆくのだった。<br/>　ボディーガードは常にじっと黙っていた。</p><p id="35e30d77-1e6b-8030-9a2b-eed1fd1359cd" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8026-9949-f10408f9076d" class="" dir="auto">　宗教指導者はもともと極めて優秀な物理学者だった。<br/>　彼の偉大な功績（今ではそれは「恥」としてその星の後世に語り継がれるであろう誤り）は、実質的に「相対化」を消滅させたということだった。つまり彼は「時間と空間の諸原理」とともに「諸原理がなぜそのような諸原理でなければならないのか」ということについての説明を「階層的から循環的へ」という明快な指針と、この上なく論理的に見える言語の連なりによって為したのだった。<br/>　彼の発表したその論文は、ドミノのように派生し、加速し、様々な世界に影響を及ぼした。その最たるものが「物質世界と精神世界の合一」だった。平たく言えば科学と宗教が、ある程度の距離を保ちながら補完しあっていた関係性から、一気に同じものになったのだった。<br/>　２つの領域は同じものになったと言いながらも、その論文の執筆者が最終的に請け負った役割が「『宗教』指導者」であったというところに、人間の浅はかさと愚かさが見え隠れするのだった。</p><p id="35e30d77-1e6b-8084-9cf4-cb8279a54443" class="" dir="auto">　その論文が発表されてから４年後、ちょうど今から２週間ほど前だろうか、偉大なる宗教指導者となった彼の論文に大きな間違いが見つかった。<br/>　彼は以前と同じような生活をすることができなくなった。それを星のほとんどの人間が、無手続き的に是認し、加担した。<br/>　そしてほんの６時間前にこの不法な機体の乗客となった。とはいえ、私は彼を「元」や「前」などを付けず、単に「宗教指導者」として識別することにしていた。</p><p id="35e30d77-1e6b-80e3-b8a3-c63fd1506190" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80a7-aa98-eb69ef3afa16" class="" dir="auto">　ふと、私は外で起きている異変に気が付いた。<br/>　進入禁止区域に散らばる「人間だったもの」の破片が、ある一点に集まり始め、その「点」は常に操縦席から見える場所にあった。それは、その「点」がこの機体と同じ速さ、同じ方向に移動していることを意味していた。</p><p id="35e30d77-1e6b-8011-8f81-c3eac288fc5f" class="" dir="auto">　外で起きている異変に側近の１人も気が付いた。<br/>　「あれはなんですか？」<br/>　誰に聞くわけでもない、その場の全員に尋ねているような質問をその側近は発した。その質問につられて他の乗客たちも窓の外を見た。<br/>　もう一人の側近は、尿を多分に含んだ下着をつけている下半身を、座席に擦り付けるようにして、「点」が見える方の窓に寄っていった。</p><p id="35e30d77-1e6b-80e3-b5ab-fe5edad33e6a" class="" dir="auto">
+</p><p id="35e30d77-1e6b-803c-bb25-dbb2f68cc155" class="" dir="auto">　乗客の視線を集めながら、その「点」はゆっくりと確実に大きくなっていた。「成長」という表現が適しているだろうか、過去に生き物を構成していた「要素」たちが、空白の期間を経て、「もう一度何かを構成するものになる」という願望によって自ら集まっているように見えた。<br/>　願望を持つ元生物の無生物たち。<br/>「それら」はとにかく、「点」に向かっていた。そして確かに、「点」は破片たちを吸収し包摂しながら、ある一つの存在物になっていった。</p><p id="35e30d77-1e6b-8072-aa64-de887adad20a" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8060-9910-d2fc7d14eaca" class="" dir="auto">　その異様な現象を前にして、機内には緊張感が漂っていた。<br/>　ボディーガードはその点を見ながら、反射的に少し身構えていた。しかし、いくら頑強な体を持っているとはいえ、意識をそちらに向け、体を少しこわばらせたところでボディーガードがその「点」に対してできることは特に何もなかった。それは「点」を見れば明らかなことだった。私は、彼の仕事人としての訓練された反射の正確さに感服するとともに、その反射が有意味なものであるかどうかの判断能力の無さが暴かれてしまったようで、それまで彼について私が積み上げていた「洗練された無思考と沈黙のイメージ」が崩れ、少し残念に思った。<br/>　側近たちは、今も大きく「成長」し続け、飛行船と並走を続けている「点」を前にし、また、嫌に別の興奮を開始した。その興奮は、自分たちが安全圏にいるのか、それともそうではなくすでに当事者になりつつあるのか分からない不安定さから来ているようだった。そしてなぜか後者の可能性の高さに彼らの興奮の根源があるようだった。<br/>　側近２人の心情の動きとその表出の仕方は人間らしくて、複雑なりに理解するのは容易だったが、両者常に考えていることが全く同じなのは明らかで、まるで同期されたデバイスのようで不気味だった。</p><p id="35e30d77-1e6b-8059-9266-f80eaee22ff9" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80c9-ab5b-cdb949d8646a" class="" dir="auto">　「点」は相変わらず「成長」を続けていた。それはもはや「球」となっていた。<br/>　固いブロックたちはその「球」となった存在に引き寄せられ、「球」と触れた途端に、思い出したように弾力を取り戻すのだった。<br/>　「球」は基本的には、白色に数滴赤い絵具を垂らしたような淡いピンク色をしていた。そして、その表面の色には生き生きとした「むら」があった。そのむらが形を変えながら表面を移動して躍動していた。むらとむらがくっついては離れ、その表面に元生物のブロックが当たり、弾性を思い出す。それをこれ見よがしに私たちの飛行船に対して繰り返すのだった。<br/>　「球」ないし「点」は、大きくなり続けていた。暗い宇宙空間の中でますます存在感を増大させていた。<br/>　すべてのものは存在するが、存在には強弱があるのではないかと思わせるエネルギーが放たれているように感じた。<br/>　いや、ただ大きいだけだった。存在と無の問題は、結局は「空間と時間の大小の問題」に平たく還元できるのだ。</p><p id="35e30d77-1e6b-80e2-b4d0-d91058d28bcb" class="" dir="auto">
+</p><p id="35e30d77-1e6b-807a-88bd-cdd98878ad09" class="" dir="auto">　私はちらりと宗教指導者の方を見た。<br/>　宗教指導者は首だけをひねり、窓の外で起きている異様な光景を見ていた。おそらくはじめは体全体をそちらに向けていたはずだったが、その体勢に納得がいかなかったのか、顔だけを窓の外に向け、体は機体と同じ正面に戻した姿勢だった。<br/>　宗教指導者は手の爪でカリカリと座席の汚れをいじっていた。おそらくそれは無意識のようだった。その汚れはずっと前から機体にこびりついているもので、そう簡単に取れるものではなかった。私も以前何度かそれを取ろうとしたが、そのたびに挫折していた。その挫折は今日、星を追われる宗教指導者の指先の拠り所として報われたのだった。</p><p id="35e30d77-1e6b-80a9-a858-c86a1ef9e49f" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80bc-81bf-cc08a2185af1" class="" dir="auto">　「球」は大きくなる。中心点とこの機体との位置関係は常に変わらなかった。つまり実際、「球」の表面とこの機体の距離は縮まっていた。それでも私は速度を落とすことはしなかった。機首の向きを目的地からそらすこともしなかった。それらの選択肢の、状況に対する効果云々よりも、ただただ面倒くさく、そうしたくなかったからだった。</p><p id="35e30d77-1e6b-8063-bbfe-c0c1ea31db29" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8076-8bfe-e08804390aa1" class="" dir="auto">　急に宇宙空間が、ギッと張り詰めた。それは音もなく起きたが、極めて確かな変化だった。先ほどまで「球」を目指し、嬉々として一点に向かっていた「元人間のブロックたち」が一斉に動きを止め、「こちらを見ていた」のだった。それらの動きの停止と視線の変化は、あり得ないほどに同時に遂行された。そして、体積を持つものにはすべて、視線が埋め込まれているのだと私はこのとき了解した。<br/>　しかし、厳密には「こちらを見ている」、というわけではないということに私は気が付いた。　「球」を目指しているとき「元人間のブロックたち」の視線はある一点、つまり「球」の中心点ですべてが交わっていた。しかし一変、動きを止めた「元人間のブロックたち」の視線はすべてが平行になったのだった。それは数秒前まで深い絆を約束していた友人が、指をパチンと鳴らすのと同時に、ただ偶然隣の席に乗り合わせただけの他人に変質するようなものだった。そして、私たちが乗っているこの飛行船は、「元人間のブロックたち」の視線に対して垂直に交わるような形で進んでいた。だから、「こちらを見ている」、ように見えたということらしかった。<br/>　「球」は「成長」だけを止め、表面のむらの模様を変化させながら、ずっと飛行船と並走して移動していた。</p><p id="35e30d77-1e6b-805c-a900-c8e329f25428" class="" dir="auto">　側近の２人はカタカタと震えていた。心理的アンバランスから生まれる興奮などというものは、彼らからはすでに消え去っていて、窓の外で起きている現象に対して歴然とした「当事者性」と分かりやすい「恐怖」を感じている様子だった。<br/>　そして、彼らは再び強く臭う尿を漏らすのだった（これも合わせたように全く同じタイミングで不気味なのだが）。この旅路で初めて正当な失禁を目の当たりにしたと私は思った。だが、今の失禁が正当で適切であることが余計に、先ほどまでの失禁はなんだったのかという憤りとして私の思考を一瞬だけ占領した。</p><p id="35e30d77-1e6b-802e-bc26-c7b97b683bee" class="" dir="auto">
+</p><p id="35e30d77-1e6b-803d-a963-fbc710a81264" class="" dir="auto">　宗教指導者が、「あ、ああ」と言った。彼は窓の外を見ていた。他の乗客も同じだった。<br/>　「球」がその巨大な体躯の形を変え始めていたのだった。淡いピンク色をした弾力のあるつるつるとした質感はやはり暗い宇宙空間のなかで一際異様だった。<br/>「球」が「球」ではなくなっていく。それは見たこともない多様で複雑な立体を次々と展開しながら、変容していた。<br/>　その変化が、どのように終わるのか、いつ終わるのかは分からなかったが、何かしらのフォルムになることを目指しているようなオーラがあった。なぜなら、その一つの「存在物」からは「要素」が感じられたからだ。吸収され「球」と一体化したはずのブロックたちは「何かを構成するものになる」という願望を叶えながらなお、「球」の体内でれっきとした「個人」として振舞っていた。そして、その何百、何千、何万という「要素」あるいは「個人」は、それぞれがそれぞれの指定された座標に向かって一斉に移動しているようだった。今展開されている多様な立体は、大量の「要素」の移動の一瞬一瞬がただ切り取られたものであり、いわば過程にすぎないのだった。<br/>　それらは躍動しながら指定された目的の座標に向かう。<br/>　「球」に吸収されず、目指すべき座標を持たない静止した「元人間のブロックたち」は相変わらず、どこまでも互いに交わることのない平行した視線を宇宙空間に投げかけ続けていた。</p><p id="35e30d77-1e6b-8010-b072-fe7372a36b9a" class="" dir="auto">　</p><p id="35e30d77-1e6b-8037-beaa-cefb24bf89f0" class="" dir="auto">　飛行船は速度を変えず、直線上を進み続ける。機首が示す視線の上をするすると滑る。<br/>　窓の外で起きている奇妙な現象とこの飛行船の行方の関係性は誰がどのようにして決めるのだろうか、誰かが後から振り返って決めてくれるだろうと私は考えていた。</p><p id="35e30d77-1e6b-80bc-b77a-f9e8182c9db9" class="" dir="auto">　</p><p id="35e30d77-1e6b-8044-a63f-cf55a1f06b12" class="" dir="auto">機内の雰囲気の中に「緊張」と「不安」と「恐怖」以外の何かが徐々に侵入し始めていることを、私は感じ取っていた。それは「驚き」の感情だった。何をいまさらとも思ったが、その「驚き」の感情は侵入してきたというよりは、元々あったものが肥大化し割合として多くを占めることになったという形だったし、その唐突な「驚き」の肥大化にも合点が行く理由が窓の外に現れ始めていたのだった。</p><p id="35e30d77-1e6b-80d3-9e34-d8c167ecd624" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8032-888a-e71d10d09419" class="" dir="auto">　宇宙空間に浮かぶ、巨大な、宗教指導者の、頭。</p><p id="35e30d77-1e6b-80d8-8d7e-dfafdca95db3" class="" dir="auto">
+</p><p id="35e30d77-1e6b-800d-bcdc-c1a2693c45b5" class="" dir="auto">　先ほどまで「球」だった「存在物」が最終的に確定させたフォルムは、この飛行船に乗っている宗教指導者の頭だった。<br/>　首より上の立体的な頭部が暗闇の中に浮かび、顔はこちらに向けていたのだった。<br/>それは瓜二つを超えて、そのものだった。淡いピンク色でつるつるしていたはずの素材は、宗教指導者の白髪の多い髪の毛から、乾燥ゆえに油分が多くテカリのある額、皮脂がぷつぷつと飛び出たり逆に大きく凹んだりしている毛穴、自分でめくってしまう唇の薄皮が一枚めくれて他より赤くなっている部分まで、見事にそれらの質感に擬態し再現していた。違うのは、大きさだけだった。</p><p id="35e30d77-1e6b-802a-ac39-c9ac6b789e11" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80fc-bead-d7abd9f51daf" class="" dir="auto">　機内の宗教指導者は目を閉じた。彼は何の言葉も発さなかったが、肺に取り込む空気の量と呼吸の頻度を徐々に加速させていった。そして、息を吐きながら低くかすれた声で唸るのだった。彼は明らかに動揺していた。<br/>　彼の吐く息には、人間の口を通過した空気であることを直感的に感じさせる臭いが乗っかっていた。悪臭というわけではなかったが、まるで追い込まれて臭気を放つカメムシのようだ、と私は思った。私の嗅覚は側近たちの下着から放たれるこもった糞尿の匂いよりも、宗教指導者の口臭に強く反応し、一時的に無意識に顔をそむけた。</p><p id="35e30d77-1e6b-80d5-b199-cf80f3a24203" class="" dir="auto">
+</p><p id="35e30d77-1e6b-807d-b054-eee9b560c1e1" class="" dir="auto">　側近たちは、目を閉じ荒い呼吸を繰り返す宗教指導者の反応をうかがっていた。自分たちのリーダーの巨大な頭部が目の前に現れたのだ。これはこれで「奇跡」として、そしてその「奇跡」に立ち会った者として、仲間たちに言い伝えられるかもしれない。「驚き」の増長にはそのような期待感、「自分たちが宗教者である」ということを思い出す、彼ら特有の快感が含まれていた。<br/>　ボディーガードは「驚き」つつ、先ほどよりも強く体をこわばらせていた。もちろん、警護対象の頭部が巨大な立体となって宇宙空間に現れたときの正しい対処法を心得ているわけなどなかった。そして、彼の肉体のこわばりの重心は分散していた。要するに、彼の洗練された無思考は、条件反射的に空中の巨大な宗教指導者の頭部さえも警護対象として認識しようとしているのだった。ボディーガードはその反射に抗おうとしていたが、確かにそれくらい２つの頭部は同じだった。しかし、私は彼を、哀れな犬のようだと思った。私は彼に飽きていた。</p><p id="35e30d77-1e6b-8030-aa5d-e963fff7a081" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8046-8962-cee3c2967d30" class="" dir="auto">　宇宙空間の頭部の「顔」に変化が現れた。「顔」はゆっくりと口を縦に開き始めたのだった。「顔」は、軽く『ア』、と発音するときのようなところまでじっとりと口を開き、そのまま止まった。<br/>　そして、「顔」が口を開き終えたとき、我々は巨大な「顔」と機内にある「顔」の、スケール以外の違いに初めて気が付いた。<br/>まず、巨大な「顔」の歯はすべて、乳歯だった。すべての歯が丸みを帯びていて、奥歯は少なかった。ことごとく正方形に近い歯ばかりだった。<br/>　そして、もう一つは、巨大な「顔」には舌がなく、その代わりにその場所には、手があったのだった。その手は当たり前かのように、とても自然にその場所に収まっていた。５本の指はこちら側に向けられており、中指が下の前歯のすぐ裏に来ていた。ちょうど喉のあたり、口腔から食道への曲がり角に手首があった。その奥には腕があるかもしれなかったが、我々の視野からは見ることはできなかったし、そもそも巨大な「顔」には首から下が無いのだった。<br/>手は指をこちらに向けたまま、手の甲と手のひらを、パタパタと交互に不規則的に、裏返したり元に戻したりを繰り返していた。</p><p id="35e30d77-1e6b-807d-b563-f07afdf1b52d" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80b0-8f17-d299a83628da" class="" dir="auto">― どうだったかな。偉くなるということは。</p><p id="35e30d77-1e6b-80bf-b309-dcba9fc0b39a" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80d2-9d29-dbb554b78183" class="" dir="auto">　それはとても幼い声だった。その声は明らかに巨大な「顔」から発せられていた。その声色は成人男性の顔と乳歯というグロテスクな組み合わせの奇怪さを増幅させ、かつ説得力を持たせるものとして存在していた。<br/>　また、その「顔」は何ら口の形を変えることなく発声をしているのだった。ただ、口の中央にある手が口腔内をせわしなく駆け回っていた。手は主として人差し指と中指を使って、おもちゃのように白い乳歯と血色の良い口腔内をランダムに撫でるのだった。</p><p id="35e30d77-1e6b-80c6-b085-d9c625ce3d71" class="" dir="auto">
+</p><p id="35e30d77-1e6b-802a-ba76-c0f44a4e8dec" class="" dir="auto">　「ええ...」<br/>　宗教指導者がたどたどしく答えた。彼が回答をするのは極めて自然なことのように思えた。我々はその幼い声が宗教指導者に向けられていること、その他に向けられることなど無いということを自明のものとして共有していた。</p><p id="35e30d77-1e6b-8016-b97e-f5e8dc865f2c" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8053-9c8b-cc5683d79f97" class="" dir="auto">― 君の視点には、「数」の持つ「多重性」に対する意識が足りなかったね。「循環構造」をそこに見る君の、「階層性」をわきまえる必要があるね。</p><p id="35e30d77-1e6b-8096-986d-ff97f8a74178" class="" dir="auto">
+</p><p id="35e30d77-1e6b-8071-a3a9-d1652e0176dd" class="" dir="auto">　「...」<br/>　宗教指導者は黙っていた。<br/>　幼い声は密度を増しながら、じりじりと宗教指導者を追いつめているように見えた。宗教指導者は動揺し、呼吸を乱しながらも、その状況を受け入れている様子だった。<br/>　手は声が発せられる間、相変わらずせわしなく動き続けていた。<br/>　舌の動き。その手は、人間が言葉を話すときの舌の動きを忠実に再現しているのだと、私は気が付いた。人間が話すときの舌の動きを単体で見るのは初めてだ、と思ったが、それは手だった。</p><p id="35e30d77-1e6b-809d-931d-fa85abb1766c" class="" dir="auto">
+</p><p id="35e30d77-1e6b-804c-8a43-ec4b12f2de7a" class="" dir="auto">― 嘘はついてもいいけれど、間違えるのはいけないね。</p><p id="35e30d77-1e6b-80f9-83d1-cd951fa9360e" class="" dir="auto">　「...」</p><p id="35e30d77-1e6b-8019-9562-d8b44d1c3521" class="" dir="auto">― でも、間違いを見つけたあの子は、嘘をついていないのかな。</p><p id="35e30d77-1e6b-8066-bdab-d5f7b1f4c725" class="" dir="auto">　「...」</p><p id="35e30d77-1e6b-80d2-8e5e-fcf5b5cb3d0c" class="" dir="auto">― もう君には関係ないのかな。君は間違っていたんだ。</p><p id="35e30d77-1e6b-8051-bbfc-eb79298d1a18" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80e7-bf5b-ed47bf2a239c" class="" dir="auto">　次の瞬間だった。<br/>　「顔」が言葉を言い終えたと思ったその直後、さっきまで舌を模していた手が、にゅいっと我々の飛行船めがけて伸びてきたのだ。<br/>　手は機体をすり抜けて貫通し、宗教指導者の体を鷲掴みにし、彼を宇宙空間に引きずりだし、その巨大な口の中に投げ入れた。<br/>　そして、さっきまで開けたままだった口を閉じた。<br/>　そして「顔」とそれを含めた「頭部」全体はその巨大な形状を保ったまま、あるひとつの「存在物」から「要素の集合体」に変貌した。それは、大きな変化ではなかったが、まるでスクリーンに近づいて行ったときに特定の距離から途端にピクセルを感じるあの幻滅の感じを、今、「顔」そして「頭部」は帯びているのだった。<br/>　それを感じたのも束の間、「顔」そして「頭部」の「要素たち」は一斉にして宇宙空間に散り散りに離散し、雑な等間隔で中空をあてもなく漂う、ブロックのように固まった、もとは人間の体を形成していたであろうものとなった。<br/>　それはこの進入禁止区域に最初広がっていた景色だった。</p><p id="35e30d77-1e6b-8054-87af-fe5e50d08724" class="" dir="auto">
+</p><p id="35e30d77-1e6b-807c-868b-cd30bfbd2ad2" class="" dir="auto">　手が宗教指導者を連れ去ってから、この光景を再度見ることになるまで、ほんの数秒の出来事だった。<br/>　機体には穴どころか傷ひとつ残ってはいなかった。<br/>　変化があったのは、宗教指導者の座席が空いたというだけだった。</p><p id="35e30d77-1e6b-8090-98a9-e0fab500c330" class="" dir="auto">
+</p><p id="35e30d77-1e6b-80c3-85fc-f17a0f335963" class="" dir="auto">　飛行船は変わらずに第３コスモを目指して直進していた。宇宙空間を漂うブロックを器用に避ける。 時間と残りの燃料のメーターを見て、予定通りの到着を私は確認した。<br/>もう少しで、この進入禁止区域から出る。</p><p id="35e30d77-1e6b-808e-8b5e-e5375e800f41" class="" dir="auto">　残された乗客に会話はなかった。<br/>　側近たちが残りの旅路で糞尿を漏らすことはもうないような気がした。そして、ボディーガードに洗練された無思考を期待して失望することもないのだ。<br/>　彼らは彼らのなかで、何かしらを思考しながら、変更されることのない目的地に向かう。そして、到着し、この旅路の出来事を消化しようと試みるのだ。<br/>　側近たちは責任ある当事者性を経たものとして。<br/>　ボディーガードはただただ体をこわばらせていたものとして。</p><p id="35e30d77-1e6b-80ba-984f-e71f23cfa8d5" class="" dir="auto">
+</p><p id="35e30d77-1e6b-800f-8fe7-d90952a7d1cc" class="" dir="auto">ーー完ーー</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
